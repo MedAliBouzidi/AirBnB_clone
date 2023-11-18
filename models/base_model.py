@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
 """BaseModel class which all will inhirt from it"""
 
 import uuid
