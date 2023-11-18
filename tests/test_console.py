@@ -15,12 +15,14 @@ class TestConsole(unittest.TestCase):
         """Test the help instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help show")
-        message = 'Prints the string representation of an instance based on the class name and id.'
-        self.assertEqual(message, re.sub(r'\s+', ' ', f.getvalue().strip()))
+        msg = re.sub(r'\s+', ' ', 'Prints the string representation of \
+            an instance based on the class name and id.')
+        self.assertEqual(msg, re.sub(r'\s+', ' ', f.getvalue().strip()))
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("help create")
-        message = 'Creates a new instance of a given class, saves it (to the JSON file) and prints the id.'
-        self.assertEqual(message, re.sub(r'\s+', ' ', f.getvalue().strip()))
+        msg = re.sub(r'\s+', ' ', 'Creates a new instance of a given class, \
+            saves it (to the JSON file) and prints the id.')
+        self.assertEqual(msg, re.sub(r'\s+', ' ', f.getvalue().strip()))
 
     def test_create(self):
         """Test Create instance"""
