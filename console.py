@@ -24,8 +24,9 @@ class HBNBCommand(cmd.Cmd):
     dotcmds = ['.all()']
 
     def do_create(self, line):
-        """Creates a new instance of a given class, saves it
-        (to the JSON file) and prints the id
+        """
+            Creates a new instance of a given class,
+            saves it (to the JSON file) and prints the id.
         """
         if line == '':
             print('** class name missing **')
@@ -50,8 +51,9 @@ class HBNBCommand(cmd.Cmd):
             print(obj.id)
 
     def do_show(self, line):
-        """A string representation of an instance depending
-        on the class name and id
+        """
+            Prints the string representation of an instance
+            based on the class name and id.
         """
         args = line.split()
         if line == '':
@@ -179,13 +181,13 @@ class HBNBCommand(cmd.Cmd):
         full_match = re.search(r'[A-Z][a-zA-Z]+\.\w+\((.*?)\)', line)
         met_match = re.search(r'(?<=\.)\w+\((.*?)\)', line)
         met_dict = {
-                "all": self.do_all,
-                "show": self.do_show,
-                "count": self.do_count,
-                "update": self.do_update,
-                "destroy": self.do_destroy,
-                "create": self.do_create
-                }
+            "all": self.do_all,
+            "show": self.do_show,
+            "count": self.do_count,
+            "update": self.do_update,
+            "destroy": self.do_destroy,
+            "create": self.do_create
+        }
         if full_match and met_match:
             cls = re.search(r'^[A-Z][a-zA-Z]+', full_match.group(0))
             print(cls)
