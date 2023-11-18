@@ -21,7 +21,7 @@ instance based on the class name and id.\n', f.getvalue())
 class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
 
     def test_create(self):
-    """Test Create instance"""
+        """Test Create instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("create BaseModel")
         self.assertIsInstance(f.getvalue(), str)
@@ -33,7 +33,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
         self.assertEqual(f.getvalue(), '** class doesn\'t exist **\n')
 
     def test_show(self):
-    """Test Show instance"""
+        """Test Show instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("show")
         self.assertEqual(f.getvalue(), '** class name missing **\n')
@@ -48,7 +48,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_destroy(self):
-    """Help destroy instance"""
+        """Help destroy instance"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("destroy")
         self.assertEqual(f.getvalue(), '** class name missing **\n')
@@ -63,7 +63,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
         self.assertEqual(f.getvalue(), '** no instance found **\n')
 
     def test_all(self):
-    """Test Alll func"""
+        """Test Alll func"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("all")
         self.assertIsInstance(f.getvalue(), str)
@@ -75,7 +75,7 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
         self.assertEqual(f.getvalue(), '** class doesn\'t exist **\n')
 
     def test_update(self):
-    """Test Updates Method"""
+        """Test Updates Method"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("update")
         self.assertEqual(f.getvalue(), '** class name missing **\n')
@@ -99,19 +99,19 @@ class, saves it (to the JSON file) and prints the id.\n', f.getvalue())
         self.assertEqual(f.getvalue(), '** value missing **\n')
 
     def test_quit(self):
-    """Test quit"""
+        """Test quit"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("quit")
         self.assertEqual(f.getvalue(), '')
 
     def test_EOF(self):
-    """Test End of the file"""
+        """Test End of the file"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("EOF")
         self.assertEqual(f.getvalue(), '\n')
 
     def test_emptyline(self):
-    """Test emptyline"""
+        """Test emptyline"""
         with patch('sys.stdout', new=StringIO()) as f:
             HBNBCommand().onecmd("")
         self.assertEqual(f.getvalue(), '')
