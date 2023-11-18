@@ -176,7 +176,7 @@ class HBNBCommand(cmd.Cmd):
         defined methods is passed
         E.G => User.all()
         """
-        full_match = re.search(r'[A-Z][a-z]+\.\w+\((.*?)\)', line)
+        full_match = re.search(r'[A-Z][a-zA-Z]+\.\w+\((.*?)\)', line)
         met_match = re.search(r'(?<=\.)\w+\((.*?)\)', line)
         met_dict = {
                 "all": self.do_all,
@@ -187,7 +187,8 @@ class HBNBCommand(cmd.Cmd):
                 "create": self.do_create
                 }
         if full_match and met_match:
-            cls = re.search(r'^[A-Z][a-z]+', full_match.group(0))
+            cls = re.search(r'^[A-Z][a-zA-Z]+', full_match.group(0))
+            print(cls)
             met = re.search(r'^\w+(?=\()', met_match.group(0))
             if not met or not cls:
                 print("** Unknown syntax:", line)
